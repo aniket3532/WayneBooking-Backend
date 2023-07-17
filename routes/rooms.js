@@ -6,6 +6,7 @@ const updateRoom = require('../controllers/room/update');
 const deleteRoom = require('../controllers/room/delete');
 const getRooms = require('../controllers/room/getAll');
 const verifyAdmin = require('../utils/verifyAdmin');
+const updateRoomAvailability = require('../controllers/room/updateAvailability');
 
 const router = express.Router();
 
@@ -14,6 +15,7 @@ router.post("/:hotelid", verifyAdmin, createRoom);
 
 //UPDATE
 router.put("/:id", verifyAdmin, updateRoom);
+router.put("/availability/:id", updateRoomAvailability);
 
 //DELETE
 router.delete("/:id/:hotelid", verifyAdmin, deleteRoom);
